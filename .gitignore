@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Project scratch
+log/
+*.eval
+.DS_Store
+
+# HF / data caches (never commit model artifacts or datasets)
+data/
+hf_cache/
+
+# Internal session files (never publish)
+.claude/
+handoff.md
+
+# Internal context (kept locally; never published)
+/CLAUDE.md
+
+# Asset preview scratch
+assets/_*

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="judgecal social preview card">
+  <style>
+    .wm   { font-family: 'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif; font-weight: 800; }
+    .sub  { font-family: 'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif; font-weight: 500; }
+    .chip { font-family: 'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif; font-weight: 600; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','DejaVu Sans Mono','Menlo',monospace; }
+  </style>
+
+  <rect width="1280" height="640" fill="#0b1220"/>
+  <!-- faint grid -->
+  <g stroke="#13203c" stroke-width="1">
+    <line x1="0" y1="128" x2="1280" y2="128"/>
+    <line x1="0" y1="256" x2="1280" y2="256"/>
+    <line x1="0" y1="384" x2="1280" y2="384"/>
+    <line x1="0" y1="512" x2="1280" y2="512"/>
+  </g>
+
+  <!-- top meta -->
+  <text class="mono" x="1240" y="50" font-size="20" fill="#475569" text-anchor="end">v0.1.0</text>
+  <text class="mono" x="40" y="50" font-size="20" fill="#475569">github.com/Effram360/judgecal</text>
+
+  <!-- wordmark + tagline -->
+  <text class="wm"  x="640" y="170" font-size="132" fill="#e8eef9" text-anchor="middle">judgecal</text>
+  <rect x="498" y="192" width="284" height="6" rx="3" fill="#34d3b0"/>
+  <text class="sub" x="640" y="248" font-size="33" fill="#aebbd0" text-anchor="middle">Reliability auditing for LLM judges &amp; reward models</text>
+
+  <!-- error-bar panel: confidence intervals against a null -->
+  <rect x="240" y="288" width="800" height="206" rx="16" fill="#0c1730" stroke="#1d2c4d"/>
+  <text class="mono" x="266" y="320" font-size="18" fill="#5b6b86">judge reliability card</text>
+  <line x1="640" y1="332" x2="640" y2="476" stroke="#3b4a6b" stroke-width="2" stroke-dasharray="5 6"/>
+  <text class="mono" x="640" y="491" font-size="14" fill="#5b6b86" text-anchor="middle">null</text>
+
+  <!-- bar 1: reject (red) -->
+  <g stroke="#f87171" stroke-width="4">
+    <line x1="668" y1="352" x2="822" y2="352"/>
+    <line x1="668" y1="343" x2="668" y2="361"/>
+    <line x1="822" y1="343" x2="822" y2="361"/>
+  </g>
+  <circle cx="748" cy="352" r="8" fill="#f87171"/>
+  <rect x="906" y="342" width="20" height="20" rx="4" fill="#f87171"/>
+
+  <!-- bar 2: pass (teal) -->
+  <g stroke="#34d3b0" stroke-width="4">
+    <line x1="566" y1="392" x2="702" y2="392"/>
+    <line x1="566" y1="383" x2="566" y2="401"/>
+    <line x1="702" y1="383" x2="702" y2="401"/>
+  </g>
+  <circle cx="618" cy="392" r="8" fill="#34d3b0"/>
+  <rect x="906" y="382" width="20" height="20" rx="4" fill="#34d3b0"/>
+
+  <!-- bar 3: underpowered (amber, wide) -->
+  <g stroke="#fbbf24" stroke-width="4">
+    <line x1="524" y1="432" x2="724" y2="432"/>
+    <line x1="524" y1="423" x2="524" y2="441"/>
+    <line x1="724" y1="423" x2="724" y2="441"/>
+  </g>
+  <circle cx="624" cy="432" r="8" fill="#fbbf24"/>
+  <rect x="906" y="422" width="20" height="20" rx="4" fill="#fbbf24"/>
+
+  <!-- bar 4: pass (teal) -->
+  <g stroke="#34d3b0" stroke-width="4">
+    <line x1="584" y1="472" x2="690" y2="472"/>
+    <line x1="584" y1="463" x2="584" y2="481"/>
+    <line x1="690" y1="463" x2="690" y2="481"/>
+  </g>
+  <circle cx="630" cy="472" r="8" fill="#34d3b0"/>
+  <rect x="906" y="462" width="20" height="20" rx="4" fill="#34d3b0"/>
+
+  <!-- feature chips -->
+  <g class="chip" font-size="21" fill="#c9d4e5">
+    <rect x="224" y="524" width="170" height="42" rx="21" fill="#111d38" stroke="#24365c"/>
+    <text x="309" y="551" text-anchor="middle">clustered CIs</text>
+    <rect x="412" y="524" width="130" height="42" rx="21" fill="#111d38" stroke="#24365c"/>
+    <text x="477" y="551" text-anchor="middle">McNemar</text>
+    <rect x="560" y="524" width="130" height="42" rx="21" fill="#111d38" stroke="#24365c"/>
+    <text x="625" y="551" text-anchor="middle">BH–FDR</text>
+    <rect x="708" y="524" width="165" height="42" rx="21" fill="#111d38" stroke="#24365c"/>
+    <text x="790" y="551" text-anchor="middle">power / MDE</text>
+    <rect x="891" y="524" width="165" height="42" rx="21" fill="#0f2b25" stroke="#1f5a4c"/>
+    <text x="973" y="551" text-anchor="middle" fill="#34d3b0">zero API key</text>
+  </g>
+
+  <!-- footer -->
+  <text class="mono" x="640" y="612" font-size="20" fill="#64748b" text-anchor="middle">pip install judgecal</text>
+</svg>

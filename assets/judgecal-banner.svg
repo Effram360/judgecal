@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-label="judgecal — statistically rigorous reliability auditing for LLM judges and reward models">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#0f1b34"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d3b0"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <style>
+      .wm   { font-family: 'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif; font-weight: 800; }
+      .sub  { font-family: 'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif; font-weight: 500; }
+      .mono { font-family: 'SF Mono','JetBrains Mono','DejaVu Sans Mono',monospace; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="360" fill="url(#bg)"/>
+  <!-- faint grid -->
+  <g stroke="#16233f" stroke-width="1">
+    <line x1="0" y1="90"  x2="1280" y2="90"/>
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="270" x2="1280" y2="270"/>
+  </g>
+
+  <!-- wordmark -->
+  <text class="wm" x="72" y="158" font-size="96" fill="#e8eef9">judgecal</text>
+  <rect x="76" y="180" width="468" height="6" rx="3" fill="url(#accent)"/>
+  <text class="sub"  x="76" y="228" font-size="26" fill="#aebbd0">Reliability auditing for LLM judges &amp; reward models</text>
+  <text class="mono" x="76" y="263" font-size="18" fill="#6b7a93">clustered CIs · McNemar · BH–FDR · power/MDE · zero API key</text>
+  <text class="mono" x="76" y="312" font-size="18" fill="#475569">$ pip install judgecal &amp;&amp; judgecal demo</text>
+
+  <!-- error-bar panel: confidence intervals against a null -->
+  <g>
+    <rect x="816" y="44" width="420" height="272" rx="14" fill="#0c1730" stroke="#1d2c4d"/>
+    <text class="mono" x="836" y="74" font-size="15" fill="#5b6b86">judge reliability card</text>
+
+    <!-- null line -->
+    <line x1="1026" y1="92" x2="1026" y2="296" stroke="#3b4a6b" stroke-width="2" stroke-dasharray="5 6"/>
+    <text class="mono" x="1026" y="312" font-size="13" fill="#5b6b86" text-anchor="middle">null</text>
+
+    <!-- bar 1: position bias — entirely right of null → reject (red, ✗) -->
+    <g stroke="#f87171" stroke-width="3">
+      <line x1="1064" y1="120" x2="1188" y2="120"/>
+      <line x1="1064" y1="110" x2="1064" y2="130"/>
+      <line x1="1188" y1="110" x2="1188" y2="130"/>
+    </g>
+    <circle cx="1128" cy="120" r="7" fill="#f87171"/>
+    <text class="mono" x="1212" y="125" font-size="18" fill="#f87171">✗</text>
+
+    <!-- bar 2: straddles null, tight → no signal at power (teal, ✓) -->
+    <g stroke="#34d3b0" stroke-width="3">
+      <line x1="982" y1="170" x2="1074" y2="170"/>
+      <line x1="982" y1="160" x2="982" y2="180"/>
+      <line x1="1074" y1="160" x2="1074" y2="180"/>
+    </g>
+    <circle cx="1030" cy="170" r="7" fill="#34d3b0"/>
+    <text class="mono" x="1212" y="175" font-size="18" fill="#34d3b0">✓</text>
+
+    <!-- bar 3: straddles null, wide → underpowered (amber, ?) -->
+    <g stroke="#fbbf24" stroke-width="3">
+      <line x1="952" y1="220" x2="1106" y2="220"/>
+      <line x1="952" y1="210" x2="952" y2="230"/>
+      <line x1="1106" y1="210" x2="1106" y2="230"/>
+    </g>
+    <circle cx="1034" cy="220" r="7" fill="#fbbf24"/>
+    <text class="mono" x="1212" y="225" font-size="18" fill="#fbbf24">?</text>
+
+    <!-- bar 4: straddles null, tight → ✓ -->
+    <g stroke="#34d3b0" stroke-width="3">
+      <line x1="996" y1="270" x2="1078" y2="270"/>
+      <line x1="996" y1="260" x2="996" y2="280"/>
+      <line x1="1078" y1="260" x2="1078" y2="280"/>
+    </g>
+    <circle cx="1040" cy="270" r="7" fill="#34d3b0"/>
+    <text class="mono" x="1212" y="275" font-size="18" fill="#34d3b0">✓</text>
+  </g>
+</svg>
