@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use judgecal in your research, please cite it as below."
+type: software
+title: "judgecal: Statistically rigorous, batch-first reliability auditing for LLM judges and reward models"
+authors:
+  - name: Eff360
+version: 0.1.0
+date-released: 2026-06-19
+license: MIT
+repository-code: "https://github.com/Effram360/judgecal"
+url: "https://github.com/Effram360/judgecal"
+keywords:
+  - llm-as-judge
+  - evaluation
+  - reliability
+  - reward-model
+  - bias
+  - statistics

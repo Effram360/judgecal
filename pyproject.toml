@@ -1,0 +1,103 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "judgecal"
+version = "0.1.0"
+description = "Statistically rigorous, batch-first reliability auditing for LLM judges and reward models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Eff360", email = "78079519+Effram360@users.noreply.github.com" }]
+keywords = [
+    "llm-as-judge",
+    "evaluation",
+    "reliability",
+    "reward-model",
+    "bias",
+    "statistics",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "pydantic>=2.5",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+inspect = ["inspect-ai>=0.3"]
+hf = ["datasets>=2.16", "huggingface_hub>=0.20"]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "statsmodels>=0.14",
+    "ruff>=0.4",
+    "mypy>=1.8",
+    "build>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Effram360/judgecal"
+Issues = "https://github.com/Effram360/judgecal/issues"
+
+[project.scripts]
+judgecal = "judgecal.cli:main"
+
+[project.entry-points.inspect_ai]
+judgecal = "judgecal._registry"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/judgecal"]
+
+# Explicit sdist allowlist: ship only the package, its tests, the small
+# user-facing examples, and top-level metadata. Internal docs, research
+# notes, experiments, and session files must never reach PyPI.
+# (examples/ is included deliberately: ~24 KB and linked from README.md.
+# hatchling additionally force-includes .gitignore + PKG-INFO in every
+# sdist for reproducible wheel-from-sdist builds; both are benign.)
+[tool.hatch.build.targets.sdist]
+only-include = [
+    "src",
+    "tests",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CITATION.cff",
+    "CONTRIBUTING.md",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -m 'not slow'"
+markers = [
+    "slow: long-running statistical coverage tests (run with -m slow)",
+    "network: tests that download data (excluded by default)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+check_untyped_defs = true
